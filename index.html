@@ -5,6 +5,7 @@
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+    <h1>Cellbit está sem jogar Umineko há <div id="contador"></div></h1>
     <h1>Umineko VODs - Cellbit</h1>
 
     <!-- Episódio 1 -->
@@ -119,6 +120,24 @@
         <h2>Sem mais vods :(</h2>
     </div>
 
+<script>
+    function atualizarContador() {
 
+    const dataUltimoVod = new Date('2023-04-09T00:00:00')
+    const dataHoje = new Date()
+
+    const diferencaDatas = dataHoje - dataUltimoVod
+    var dias = Math.floor(diferencaDatas / (1000 * 60 * 60 * 24));
+    var horas = Math.floor((diferencaDatas % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    var minutos = Math.floor((diferencaDatas % (1000 * 60 * 60)) / (1000 * 60));
+    var segundos = Math.floor((diferencaDatas % (1000 * 60)) / 1000);
+
+    document.getElementById('contador').innerHTML = `${dias} dias, ${horas} horas, ${minutos} minutos e ${segundos} segundos`
+    
+}
+
+setInterval(atualizarContador, 1000)
+
+</script>
 </body>
 </html>
